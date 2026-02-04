@@ -35,7 +35,7 @@ router.post(
     return res
       .status(201)
       .send({ message: "User registered successfully. Welcome aboard!" });
-  }
+  },
 );
 
 router.post(
@@ -59,7 +59,7 @@ router.post(
     }
 
     const payload = { email: user.email };
-    const secretKey = "jlhfgwopieufmqpoe69";
+    const secretKey = process.env.JWT_SECRET;
 
     const token = jwt.sign(payload, secretKey, { expiresIn: "7d" });
 
@@ -70,7 +70,7 @@ router.post(
       accessToken: token,
       userDetails: user,
     });
-  }
+  },
 );
 
 export { router as userController };

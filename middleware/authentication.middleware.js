@@ -11,7 +11,7 @@ export const isSeller = async (req, res, next) => {
   let payload = null;
 
   try {
-    const secretKey = "jlhfgwopieufmqpoe69";
+    const secretKey = process.env.JWT_SECRET;
 
     payload = jwt.verify(token, secretKey);
   } catch (error) {
@@ -43,7 +43,7 @@ export const isBuyer = async (req, res, next) => {
   let payload = null;
 
   try {
-    const secretKey = "jlhfgwopieufmqpoe69";
+    const secretKey = process.env.JWT_SECRET;
 
     payload = jwt.verify(token, secretKey);
   } catch (error) {
@@ -75,7 +75,7 @@ export const isUser = async (req, res, next) => {
   let payload = null;
 
   try {
-    const secretKey = "jlhfgwopieufmqpoe69";
+    const secretKey = process.env.JWT_SECRET;
 
     payload = jwt.verify(token, secretKey);
   } catch (error) {

@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 
-const dbName = "mini-project";
-const dbUserName = "vscode";
-const dbPassword = encodeURIComponent("vscode123");
-const dbHost = "cluster0.4kulq.mongodb.net";
-const dbOptions = "retryWrites=true&w=majority&appName=Cluster0";
+// const dbName = "mini-project";
+// const dbUserName = "vscode";
+// const dbPassword = encodeURIComponent("vscode123");
+// const dbHost = "cluster0.4kulq.mongodb.net";
+// const dbOptions = "retryWrites=true&w=majority&appName=Cluster0";
 
 const connectDB = async () => {
   try {
-    const url = `mongodb+srv://${dbUserName}:${dbPassword}@${dbHost}/${dbName}?${dbOptions}`;
+    const url = process.env.MONGO_URL;
 
     await mongoose.connect(url);
 
@@ -21,3 +21,5 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+// mongodb+srv://vscode:vscode123@cluster0.4kulq.mongodb.net/mini-project?retryWrites=true&w=majority&appName=Cluster0
+//`mongodb+srv://${dbUserName}:${dbPassword}@${dbHost}/${dbName}?${dbOptions}`

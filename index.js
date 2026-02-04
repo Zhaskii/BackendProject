@@ -9,6 +9,9 @@ const app = express();
 
 app.use(express.json());
 
+import dotenv from "dotenv";
+dotenv.config();
+
 app.use(
   cors({
     origin: [
