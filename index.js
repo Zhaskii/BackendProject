@@ -6,21 +6,23 @@ import { cartController } from "./cart/cart.controller.js";
 import cors from "cors";
 import dotenv from "dotenv";
 
+dotenv.config();
+
 const app = express();
 
 app.use(express.json());
-
-dotenv.config();
 
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://frontend-project-awth.vercel.app/",
+      "https://frontend-project-awth.vercel.app",
     ],
   }),
 );
+
+app.options("*", cors());
 
 await connectDB();
 
